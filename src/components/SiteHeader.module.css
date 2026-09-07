@@ -1,70 +1,110 @@
+/* Not a bar. No background, no border, no sticky rail — three pieces floating
+   over the band, which is what keeps a header from reading as chrome.
+   It is ABSOLUTE rather than fixed on purpose: it lives over the navy band and
+   takes its ink from there, so scrolling it onto the light page below would
+   leave pale text on a pale surface. It scrolls away with the band instead. */
 .header {
-  position: sticky;
-  inset-block-start: 0;
+  position: absolute;
+  inset-block-start: clamp(1.25rem, 4vw, 2.25rem);
+  inset-inline: 0;
   z-index: 10;
-  width: 100%;
-  border-block-end: 1px solid var(--line);
-  background: color-mix(in oklab, var(--bg) 88%, transparent);
-  backdrop-filter: blur(12px);
+  /* The row is wider than the things in it; without this it eats clicks
+     across the whole top of the hero. Each child opts back in. */
+  pointer-events: none;
 }
 
+/* 1fr auto 1fr centers the nav on the page rather than on the space left over
+   beside the brand — and it does it without a physical-property translate. */
 .inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: var(--s-6);
+  gap: var(--s-4);
+  /* Same rail as the hero, grid and footer, so the mark sits exactly on the
+     headline's inline edge instead of floating 48px outside it. */
   max-width: 68rem;
   margin-inline: auto;
-  padding: var(--s-3) var(--s-5);
+  padding-inline: var(--s-5);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: var(--s-2);
+  gap: var(--s-3);
+  justify-self: start;
+  border-radius: var(--r-md);
+  color: var(--band-ink);
   font-size: var(--t-body);
   letter-spacing: -0.01em;
   text-decoration: none;
+  pointer-events: auto;
 }
 
 .mark {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--accent);
+  display: grid;
+  place-items: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: var(--r-md);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.mark svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.word {
+  transition: opacity 160ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+.brand:hover .word {
+  opacity: 0.7;
 }
 
 .nav {
   display: flex;
-  gap: var(--s-5);
-  margin-inline-start: auto;
+  gap: var(--s-6);
+  justify-self: center;
 }
 
 .link,
-.signin {
-  color: var(--ink-quiet);
-  font-size: var(--t-small);
-  text-decoration: none;
+.source {
   border-radius: var(--r-sm);
+  color: var(--band-quiet);
+  font-size: var(--t-body);
+  text-decoration: none;
+  pointer-events: auto;
   transition: color 160ms cubic-bezier(0.2, 0, 0, 1);
 }
 
-.link:hover,
-.signin:hover {
-  color: var(--ink);
+.source {
+  justify-self: end;
 }
 
-.signin {
-  padding-inline-start: var(--s-5);
-  border-inline-start: 1px solid var(--line);
+/* Hover only where there is a real pointer — on touch it latches. */
+@media (hover: hover) and (pointer: fine) {
+  .link:hover,
+  .source:hover {
+    color: var(--band-ink);
+  }
 }
 
-@media (max-width: 40rem) {
+.link:focus-visible,
+.source:focus-visible,
+.brand:focus-visible {
+  box-shadow: 0 0 0 2px var(--band), 0 0 0 4px var(--accent);
+}
+
+/* The centre links go first — the brand and the one real action are what
+   matter, and three words fighting for a narrow row is the corporate look. */
+@media (max-width: 52rem) {
   .nav {
     display: none;
   }
 
-  .signin {
-    margin-inline-start: auto;
-    padding-inline-start: 0;
-    border-inline-start: none;
+  .inner {
+    grid-template-columns: 1fr auto;
   }
 }

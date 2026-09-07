@@ -2,7 +2,7 @@ import styles from './SiteFooter.module.css'
 
 export default function SiteFooter() {
   return (
-    <footer className={styles.footer}>
+    <footer className={styles.footer} id="footer">
       <div className={styles.inner}>
         <p className={styles.copy}>
           a demo page for silt-design-mode. nothing is real except the components.

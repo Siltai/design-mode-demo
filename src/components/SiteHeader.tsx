@@ -6,34 +6,42 @@ export default function SiteHeader() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <a className={styles.brand} href="/">
-          <svg
-            className={styles.mark}
-            viewBox="0 0 20 20"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.25"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M5.5 9h8v4.5a3 3 0 0 1-3 3H8.5a3 3 0 0 1-3-3z" />
-            <path d="M13.5 10.5 16.5 8.5" />
-            <path d="M7.5 9V8.25a2 2 0 0 1 4 0V9" />
-          </svg>
-          kettle
+        <a className={styles.brand} href="/" aria-label="kettle, home">
+          <span className={styles.mark}>
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M7 10h10v5.5a3.5 3.5 0 0 1-3.5 3.5h-3A3.5 3.5 0 0 1 7 15.5z"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M17 11.5 20 9.5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+              <path
+                d="M9.5 10V9a2.5 2.5 0 0 1 5 0v1"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+              />
+            </svg>
+          </span>
+          <span className={styles.word}>kettle</span>
         </a>
 
         <nav className={styles.nav} aria-label="Main">
           {LINKS.map((link) => (
-            <a key={link} className={styles.link} href={`/${link}`}>
+            <a key={link} className={styles.link} href={`#${link}`}>
               {link}
             </a>
           ))}
         </nav>
 
         <a
-          className={styles.signin}
+          className={styles.source}
           href="https://github.com/Siltai/design-mode-demo"
         >
           source

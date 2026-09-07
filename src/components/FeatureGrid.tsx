@@ -62,7 +62,7 @@ const CARDS = [
 
 export default function FeatureGrid() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="cards">
       <div className={styles.inner}>
         <header className={styles.header}>
           <h2 className={styles.title}>what is actually on this page</h2>

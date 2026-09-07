@@ -1,4 +1,7 @@
+/* The header is absolutely positioned over the hero band, so the page is its
+   containing block. */
 .page {
+  position: relative;
   display: flex;
   flex-direction: column;
   min-height: 100vh;

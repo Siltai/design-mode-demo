@@ -11,7 +11,7 @@
   align-items: start;
   max-width: 68rem;
   margin-inline: auto;
-  padding: var(--s-9) var(--s-5) var(--s-8);
+  padding: calc(var(--s-9) + var(--s-4)) var(--s-5) var(--s-8);
 }
 
 .eyebrow {
@@ -100,7 +100,7 @@
    is just scrolling before the headline. Breaks where the content stops fitting. */
 @media (max-width: 48rem) {
   .inner {
-    padding-block: var(--s-7) var(--s-7);
+    padding-block: calc(var(--s-8) + var(--s-4)) var(--s-7);
   }
 
   .eyebrow {

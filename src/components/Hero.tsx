@@ -16,7 +16,7 @@ export default function Hero({
   secondaryLabel = 'read the source',
 }: HeroProps) {
   return (
-    <section className={styles.hero}>
+    <section className={styles.hero} id="hero">
       <div className={styles.inner}>
         <p className={styles.eyebrow}>
           <span className={styles.rule} aria-hidden="true" />
