@@ -1,3 +1,4 @@
+import Button from './Button'
 import styles from './Hero.module.css'
 
 interface HeroProps {
@@ -27,12 +28,12 @@ export default function Hero({
         <p className={styles.subtitle}>{subtitle}</p>
 
         <div className={styles.actions}>
-          <button type="button" className={styles.primary}>
+          <Button onBand variant="primary">
             {primaryLabel}
-          </button>
-          <button type="button" className={styles.secondary}>
+          </Button>
+          <Button onBand variant="secondary">
             {secondaryLabel}
-          </button>
+          </Button>
         </div>
       </div>
     </section>
