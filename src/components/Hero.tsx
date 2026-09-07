@@ -9,24 +9,31 @@ interface HeroProps {
 }
 
 export default function Hero({
-  eyebrow = 'Now in public beta',
+  eyebrow = 'now in public beta',
   title,
   subtitle,
-  primaryLabel = 'Start free',
-  secondaryLabel = 'Book a demo',
+  primaryLabel = 'start free',
+  secondaryLabel = 'book a demo',
 }: HeroProps) {
   return (
     <section className={styles.hero}>
-      <span className={styles.eyebrow}>{eyebrow}</span>
-      <h1 className={styles.title}>{title}</h1>
-      <p className={styles.subtitle}>{subtitle}</p>
-      <div className={styles.actions}>
-        <button type="button" className={styles.primary}>
-          {primaryLabel}
-        </button>
-        <button type="button" className={styles.secondary}>
-          {secondaryLabel}
-        </button>
+      <div className={styles.inner}>
+        <p className={styles.eyebrow}>
+          <span className={styles.rule} aria-hidden="true" />
+          {eyebrow}
+        </p>
+
+        <h1 className={styles.title}>{title}</h1>
+        <p className={styles.subtitle}>{subtitle}</p>
+
+        <div className={styles.actions}>
+          <button type="button" className={styles.primary}>
+            {primaryLabel}
+          </button>
+          <button type="button" className={styles.secondary}>
+            {secondaryLabel}
+          </button>
+        </div>
       </div>
     </section>
   )

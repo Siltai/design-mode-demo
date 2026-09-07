@@ -1,7 +1,8 @@
+import type { ReactNode } from 'react'
 import styles from './FeatureCard.module.css'
 
 interface FeatureCardProps {
-  icon: string
+  icon: ReactNode
   title: string
   description: string
   badge?: string

@@ -10,8 +10,8 @@ export default function App() {
       <SiteHeader />
       <main>
         <Hero
-          title="Support that keeps up with your inbox"
-          subtitle="Kettle brings every customer conversation into one queue, routes it to the right person, and tells you how you are doing while the day is still running."
+          title="support that keeps up with your inbox"
+          subtitle="every customer conversation in one queue, routed to the right person, with the numbers moving while the day is still running."
         />
         <FeatureGrid />
       </main>
