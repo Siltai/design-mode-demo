@@ -9,7 +9,7 @@ const line = {
   strokeLinejoin: 'round',
 } as const
 
-const CARDS = [
+export const CARDS = [
   {
     title: 'four of the same card',
     badge: 'props',
