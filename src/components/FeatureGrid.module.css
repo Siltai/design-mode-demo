@@ -33,7 +33,95 @@
   margin-block-start: var(--s-7);
 }
 
+/* ── the drawings ─────────────────────────────────────────────────────────
+ * Each one reads `--hover` off the card it sits in (FeatureCard publishes it)
+ * and decides for itself what hovering means. Transforms and opacity only, on
+ * css transitions rather than keyframes, so a pointer that leaves halfway
+ * reverses from wherever it got to instead of playing to the end first. The
+ * global prefers-reduced-motion rule in index.css flattens all of it.
+ *
+ * transform-box: fill-box so an svg child's transform-origin is its own box
+ * rather than the whole canvas — without it every scale flies off-centre.
+ */
 .art {
   width: 78%;
   height: auto;
+}
+
+.art :where(rect, path) {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition:
+    transform 320ms cubic-bezier(0.2, 0, 0, 1),
+    opacity 320ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* 1 — the stack fans out, so you can see there are three of them. */
+.stackBack {
+  opacity: calc(0.3 + var(--hover) * 0.25);
+  transform: translate(calc(var(--hover) * -7px), calc(var(--hover) * -5px));
+}
+
+.stackMid {
+  opacity: calc(0.55 + var(--hover) * 0.2);
+}
+
+.stackFront {
+  transform: translate(calc(var(--hover) * 7px), calc(var(--hover) * 5px));
+}
+
+/* 2 — the pointer travels to the pill and presses it. */
+.pill {
+  transform: scale(calc(1 - var(--hover) * 0.06));
+}
+
+.pillFill {
+  opacity: calc(0.45 - var(--hover) * 0.25);
+}
+
+.cursor {
+  transform: translate(calc(var(--hover) * -18px), calc(var(--hover) * -13px));
+}
+
+/* 3 — the steps rise in order. The stagger is the whole point: it says these
+ *     are five values on one scale, not one shape that happens to be jagged. */
+.step1,
+.step2,
+.step3,
+.step4,
+.step5 {
+  transform: translateY(calc(var(--hover) * -4px));
+}
+
+.step1 {
+  transition-delay: 0ms;
+}
+
+.step2 {
+  transition-delay: 40ms;
+}
+
+.step3 {
+  transition-delay: 80ms;
+}
+
+.step4 {
+  transition-delay: 120ms;
+}
+
+.step5 {
+  transition-delay: 160ms;
+}
+
+/* 4 — the card leaves the frame it was drawn in. */
+.origin {
+  opacity: calc(1 - var(--hover) * 0.55);
+}
+
+.leaving {
+  transform: translateX(calc(var(--hover) * 9px));
+}
+
+.leavingArrow {
+  transform: translateX(calc(var(--hover) * 5px));
 }

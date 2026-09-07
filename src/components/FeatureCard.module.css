@@ -9,10 +9,21 @@
   background: var(--surface);
   box-shadow: var(--ring);
   transition: box-shadow 200ms cubic-bezier(0.2, 0, 0, 1);
+
+  /* The card publishes its hover as an INHERITED CHANNEL rather than reaching
+     into the art with a descendant selector. It cannot reach it anyway — the
+     art's classes are scoped to FeatureGrid's module — and this way the card
+     owns "am I hovered" while each drawing owns what that means. A custom
+     property is not itself animatable, but the transform it feeds is, so the
+     transitions below still interpolate and still retarget mid-flight. */
+  --hover: 0;
 }
 
-.card:hover {
-  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 40%, var(--line));
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    --hover: 1;
+    box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 40%, var(--line));
+  }
 }
 
 .well {
