@@ -1,6 +1,6 @@
 import styles from './SiteHeader.module.css'
 
-const LINKS = ['product', 'pricing', 'customers', 'docs']
+const LINKS = ['hero', 'cards', 'footer']
 
 export default function SiteHeader() {
   return (
@@ -32,8 +32,11 @@ export default function SiteHeader() {
           ))}
         </nav>
 
-        <a className={styles.signin} href="/signin">
-          sign in
+        <a
+          className={styles.signin}
+          href="https://github.com/Siltai/design-mode-demo"
+        >
+          source
         </a>
       </div>
     </header>

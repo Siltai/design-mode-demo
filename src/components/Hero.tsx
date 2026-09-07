@@ -9,11 +9,11 @@ interface HeroProps {
 }
 
 export default function Hero({
-  eyebrow = 'now in public beta',
+  eyebrow = 'a demo page, and nothing else',
   title,
   subtitle,
-  primaryLabel = 'start free',
-  secondaryLabel = 'book a demo',
+  primaryLabel = 'point at something',
+  secondaryLabel = 'read the source',
 }: HeroProps) {
   return (
     <section className={styles.hero}>

@@ -32,3 +32,8 @@
   gap: var(--s-4);
   margin-block-start: var(--s-7);
 }
+
+.art {
+  width: 78%;
+  height: auto;
+}

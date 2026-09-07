@@ -34,3 +34,7 @@
 .link:hover {
   color: var(--ink);
 }
+
+.copy {
+  max-width: 40ch;
+}

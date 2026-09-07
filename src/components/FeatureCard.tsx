@@ -2,28 +2,29 @@ import type { ReactNode } from 'react'
 import styles from './FeatureCard.module.css'
 
 interface FeatureCardProps {
-  icon: ReactNode
+  /** Fills the well above the text — art, a swatch row, anything. */
+  well: ReactNode
   title: string
   description: string
   badge?: string
 }
 
 export default function FeatureCard({
-  icon,
+  well,
   title,
   description,
   badge,
 }: FeatureCardProps) {
   return (
     <article className={styles.card}>
-      <span className={styles.icon} aria-hidden="true">
-        {icon}
-      </span>
-      <div className={styles.heading}>
-        <h3 className={styles.title}>{title}</h3>
-        {badge ? <span className={styles.badge}>{badge}</span> : null}
+      <div className={styles.well}>{well}</div>
+      <div className={styles.text}>
+        <div className={styles.heading}>
+          <h3 className={styles.title}>{title}</h3>
+          {badge ? <span className={styles.badge}>{badge}</span> : null}
+        </div>
+        <p className={styles.description}>{description}</p>
       </div>
-      <p className={styles.description}>{description}</p>
     </article>
   )
 }

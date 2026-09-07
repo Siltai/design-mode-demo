@@ -1,61 +1,60 @@
 import FeatureCard from './FeatureCard'
 import styles from './FeatureGrid.module.css'
 
-const stroke = {
+const line = {
   fill: 'none',
   stroke: 'currentColor',
-  strokeWidth: 1.25,
+  strokeWidth: 1,
   strokeLinecap: 'round',
   strokeLinejoin: 'round',
 } as const
 
-const FEATURES = [
+const CARDS = [
   {
-    title: 'one inbox',
+    title: 'four of the same card',
+    badge: 'props',
     description:
-      'email, chat and social land in a single queue your team actually works through.',
-    badge: 'new',
-    icon: (
-      <svg viewBox="0 0 24 24" {...stroke}>
-        <path d="M3 7h18v10H3z" />
-        <path d="m3 8 9 6 9-6" />
+      'one component, four sets of props. change the component and all four move; change the props and only one does.',
+    well: (
+      <svg viewBox="0 0 120 90" className={styles.art} aria-hidden="true">
+        <rect x="18" y="26" width="60" height="42" rx="7" {...line} opacity="0.3" />
+        <rect x="26" y="30" width="60" height="42" rx="7" {...line} opacity="0.55" />
+        <rect x="34" y="34" width="60" height="42" rx="7" {...line} />
       </svg>
     ),
   },
   {
-    title: 'routing that holds',
+    title: 'that badge is a prop',
     description:
-      'rules assign by topic, language and workload, so nothing waits on a manual triage pass.',
-    icon: (
-      <svg viewBox="0 0 24 24" {...stroke}>
-        <path d="M4 6h6l4 6 6 0" />
-        <path d="M4 18h6l2-3" />
-        <path d="m17 9 3 3-3 3" />
+      'pass it and it shows up, leave it out and the row closes. the kind of thing worth checking before you trust a capture.',
+    well: (
+      <svg viewBox="0 0 120 90" className={styles.art} aria-hidden="true">
+        <rect x="30" y="34" width="44" height="18" rx="9" {...line} />
+        <path d="M40 43h24" {...line} opacity="0.45" />
+        <path d="M76 50v14l4-4h6z" {...line} />
       </svg>
     ),
   },
   {
-    title: 'drafts, together',
+    title: 'one scale, no strays',
     description:
-      'write replies side by side, leave notes only the team sees, send once it reads right.',
-    icon: (
-      <svg viewBox="0 0 24 24" {...stroke}>
-        <path d="M5 5h9l5 5v9H5z" />
-        <path d="M14 5v5h5" />
-        <path d="M8.5 14h6" />
+      'spacing, radius and type each come off a closed set. nothing here is a number someone typed once and forgot.',
+    well: (
+      <svg viewBox="0 0 120 90" className={styles.art} aria-hidden="true">
+        <path d="M24 62h72" {...line} opacity="0.4" />
+        <path d="M24 62v-6M42 62v-10M60 62v-16M78 62v-24M96 62v-34" {...line} />
       </svg>
     ),
   },
   {
-    title: 'metrics while it matters',
+    title: 'made to leave the page',
     description:
-      'response time, backlog and satisfaction move as the day runs, not the morning after.',
-    icon: (
-      <svg viewBox="0 0 24 24" {...stroke}>
-        <path d="M4 19V9" />
-        <path d="M10 19V5" />
-        <path d="M16 19v-6" />
-        <path d="M22 19H2" />
+      'each card keeps its own styles in its own file, so it still looks like this once it is somewhere else entirely.',
+    well: (
+      <svg viewBox="0 0 120 90" className={styles.art} aria-hidden="true">
+        <path d="M62 28H30a5 5 0 0 0-5 5v24a5 5 0 0 0 5 5h32" {...line} opacity="0.4" />
+        <rect x="62" y="32" width="34" height="26" rx="6" {...line} />
+        <path d="M52 45h30m-7-6 7 6-7 6" {...line} />
       </svg>
     ),
   },
@@ -66,15 +65,15 @@ export default function FeatureGrid() {
     <section className={styles.section}>
       <div className={styles.inner}>
         <header className={styles.header}>
-          <h2 className={styles.title}>everything in one place</h2>
+          <h2 className={styles.title}>what is actually on this page</h2>
           <p className={styles.subtitle}>
-            replace the four tools your support team is switching between.
+            a header, a hero, four cards and a footer. that is the whole thing.
           </p>
         </header>
 
         <div className={styles.grid}>
-          {FEATURES.map((feature) => (
-            <FeatureCard key={feature.title} {...feature} />
+          {CARDS.map((card) => (
+            <FeatureCard key={card.title} {...card} />
           ))}
         </div>
       </div>

@@ -10,8 +10,8 @@ export default function App() {
       <SiteHeader />
       <main>
         <Hero
-          title="support that keeps up with your inbox"
-          subtitle="every customer conversation in one queue, routed to the right person, with the numbers moving while the day is still running."
+          title="the simplest page worth pointing at"
+          subtitle="there is no product behind this. it is the smallest honest landing page we could build — enough real components to point at, change, and send somewhere else."
         />
         <FeatureGrid />
       </main>
