@@ -9,9 +9,16 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-  max-width: 68rem;
+  box-sizing: border-box;
+  width: 809px;
+  min-width: 0;
+  max-width: none;
+  height: 580px;
+  min-height: 0;
+  max-height: none;
   margin-inline: auto;
   padding: calc(var(--s-9) + var(--s-4)) var(--s-5) var(--s-8);
+  padding-left: 248px;
 }
 
 .eyebrow {
@@ -34,6 +41,7 @@
 .title {
   max-width: 15ch;
   font-size: var(--t-display);
+  opacity: 0.8;
 }
 
 .subtitle {
