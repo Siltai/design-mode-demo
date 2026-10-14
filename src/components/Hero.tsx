@@ -28,11 +28,11 @@ export default function Hero({
         <p className={styles.subtitle}>{subtitle}</p>
 
         <div className={styles.actions}>
-          <Button onBand variant="primary">
-            {primaryLabel}
-          </Button>
           <Button onBand variant="secondary">
             {secondaryLabel}
+          </Button>
+          <Button onBand variant="primary">
+            {primaryLabel}
           </Button>
         </div>
       </div>
